@@ -1,6 +1,7 @@
 import plotly.express as px
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def plot_sentiment_pie(df):
     counts = df['sentiment'].value_counts().reset_index()
