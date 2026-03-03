@@ -29,12 +29,18 @@ with st.sidebar:
 df = pd.read_csv('data/processed_tweets.csv')
 df = df[df['sentiment'].isin(sentiment_filter)]
 
+# Filter by keyword search
+if topic:
+    df = df[df['clean_text'].str.contains(topic.lower(), na=False)]
+
+df = df[df['vader_label'].isin(sentiment_filter)]
+
 # Metrics 
 
 col1, col2, col3, col4 = st.columns(4)
 col1.metric('Total Posts',    len(df))
-col2.metric('Positive',       len(df[df.sentiment=='Positive']))
-col3.metric('Negative',       len(df[df.sentiment=='Negative']))
+col2.metric('Positive', len(df[df.vader_label=='Positive']))
+col3.metric('Negative', len(df[df.vader_label=='Negative']))
 col4.metric('Avg Score',      round(df['vader_score'].mean(), 3))
 
 # Charts
@@ -59,6 +65,6 @@ with col_d:
 
 st.subheader('Top 10 Posts by Sentiment Score')
 st.dataframe(
-    df.nlargest(10, 'vader_score')[['text','vader_score','sentiment']],
+    df.nlargest(10, 'vader_score')[['text', 'vader_score', 'vader_label']],
     use_container_width=True
 )
