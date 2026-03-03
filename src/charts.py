@@ -52,7 +52,7 @@ def plot_wordcloud(df, sentiment_filter=None):
 
 def plot_score_distribution(df):
     fig = px.histogram(
-        dfm, x='vader_score', nbins=30,
+        df, x='vader_score', nbins=30,
         title='Distribution of Sentiment Score',
         color_discrete_sequence=['#3498DB']
     )
