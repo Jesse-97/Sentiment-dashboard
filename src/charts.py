@@ -39,8 +39,8 @@ def plot_wordcloud(df, sentiment_filter=None):
     else:
         text = ' '.join(df['clean_text'])
     
-    wc = WorldCloud(
-        widht=800, height=400,
+    wc = WordCloud(
+        width=800, height=400,
         background_color='white',
         colormap='Blues' if sentiment_filter =='Positive' else 'Reds'
     ).generate(text)
