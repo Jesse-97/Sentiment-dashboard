@@ -1,4 +1,4 @@
-import streamlit as streamlit
+import streamlit as st
 import pandas as pd
 from src.sentiment import get_vader_sentiment
 from src.cleaner import clean_text
