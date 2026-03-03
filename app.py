@@ -1,5 +1,5 @@
 import streamlit as streamlit
-import panadas as pd
+import pandas as pd
 from src.sentiment import get_vader_sentiment
 from src.clear import clean_text
 from charts import *
