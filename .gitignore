@@ -1,0 +1,6 @@
+data/raw_tweets.csv
+venv/
+notebooks/.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.env
