@@ -1,8 +1,8 @@
 import streamlit as streamlit
 import pandas as pd
 from src.sentiment import get_vader_sentiment
-from src.clear import clean_text
-from charts import *
+from src.cleaner import clean_text
+from src.charts import *
 
 st.set_page_config(
     page_title='Sentiment Dashboard',
